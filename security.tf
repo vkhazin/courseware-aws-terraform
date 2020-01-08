@@ -3,7 +3,7 @@ resource "tls_private_key" "ssh-key" {
     rsa_bits = 4096
 }
 
-resource "local_file" "foo" {
+resource "local_file" "ssh-key" {
     content             = tls_private_key.ssh-key.private_key_pem
     filename            = "./${var.key_name}.pem"
     file_permission     = "400"
