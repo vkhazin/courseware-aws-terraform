@@ -30,3 +30,14 @@ resource "aws_security_group_rule" "ssh_inbound_access" {
         "0.0.0.0/0"
     ]
 }
+
+resource "aws_security_group_rule" "outbound_access" {
+    protocol = "-1"
+    security_group_id = aws_security_group.sg.id
+    from_port = 0
+    to_port = 0
+    type = "egress"
+    cidr_blocks = [
+        "0.0.0.0/0"
+    ]    
+}
